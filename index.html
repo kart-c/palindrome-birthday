@@ -3,14 +3,42 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+		/>
 		<link rel="stylesheet" href="main.css" />
 		<title>Palindrome Birthday</title>
 	</head>
 	<body>
-		<h1>Is your birthday a Palindrome? 🎂</h1>
-		<p>Enter your birthday date</p>
-		<input type="date" id="date-input" />
-		<button id="check-button">Check</button>
+		<main>
+			<h1>Is your birthday a Palindrome? 🎂</h1>
+			<p class="sub-heading">Enter your birthday date</p>
+			<input type="date" id="date-input" />
+			<button id="check-button">Check</button>
+			<p id="output-container"></p>
+			<img src="images/hangover-math.gif" alt="" id="loading-image" />
+		</main>
+		<footer>
+			<ul class="footer-social">
+				<li class="footer-social__links">
+					<a href="https://twitter.com/kart_c11"
+						><i class="large icons"><i class="twitter icon"></i></i
+					></a>
+				</li>
+				<li class="footer-social__links">
+					<a
+						href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile"
+						><i class="large icons"><i class="linkedin icon"></i></i
+					></a>
+				</li>
+				<li class="footer-social__links">
+					<a href="https://github.com/kart-c"
+						><i class="large icons"><i class="github icon"></i></i
+					></a>
+				</li>
+			</ul>
+		</footer>
 		<script src="app.js"></script>
 	</body>
 </html>

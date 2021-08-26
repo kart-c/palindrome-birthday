@@ -1,5 +1,7 @@
 const dateInput = document.querySelector('#date-input');
 const checkBtn = document.querySelector('#check-button');
+const outputContainer = document.querySelector('#output-container');
+const loadingImage = document.querySelector('#loading-image');
 
 function reverseString(str) {
 	return str.split('').reverse().join('');
@@ -185,27 +187,38 @@ function checkBtnHandler() {
 	const userDateInput = dateInput.value;
 	if (userDateInput !== '') {
 		const dateFormat = userDateInput.split('-');
+		loadingImage.style.display = 'block';
+		outputContainer.style.display = 'none';
 
 		const date = {
 			day: Number(dateFormat[2]),
 			month: Number(dateFormat[1]),
 			year: Number(dateFormat[0]),
 		};
-		if (checkPalindromeForAllFormats(date)) {
-			console.log('Yes');
-		} else {
-			console.log(nextPalindromeDate(date));
-			console.log(previousPalindromeDate(date));
-		}
+
+		setTimeout(() => {
+			loadingImage.style.display = 'none';
+			outputContainer.style.display = 'block';
+			if (checkPalindromeForAllFormats(date)) {
+				outputContainer.innerText = 'Congrats! Your birthday is a palindrome 🥳';
+			} else {
+				const [nextPalindrome, { nextday = day, nextmonth = month, nextyear = year }] =
+					nextPalindromeDate(date);
+				const [previousPalindrome, { prevday = day, prevmonth = month, prevyear = year }] =
+					previousPalindromeDate(date);
+
+				const nextDay = nextPalindrome > 1 ? 'days' : 'day';
+				const prevDay = previousPalindrome > 1 ? 'days' : 'day';
+
+				if (nextPalindrome > previousPalindrome) {
+					outputContainer.innerText = `Sorry your birthday is not a palindrome 😔. You missed the nearest palindrome by ${previousPalindrome} ${prevDay} which was on ${prevday}-${prevmonth}-${prevyear}`;
+				} else {
+					outputContainer.innerText = `Sorry your birthday is not a palindrome 😔. You missed the nearest palindrome by ${nextPalindrome} ${nextDay} which is on ${nextday}-${nextmonth}-${nextyear}`;
+				}
+			}
+		}, 2000);
 	}
+	return (outputContainer.innerText = 'Select valid date to proceed');
 }
 
 checkBtn.addEventListener('click', checkBtnHandler);
-
-let date = {
-	day: 1,
-	month: 1,
-	year: 2020,
-};
-
-// console.log(nextPalindromeDate(date));

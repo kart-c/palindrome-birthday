@@ -1,14 +1,80 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+:root {
+	--primary-color: #00b0ff;
+	--secondary-color: #6acdff;
+}
 
 body {
 	text-align: center;
 	font-family: 'Montserrat', sans-serif;
 	padding: 2rem;
 	max-width: 37rem;
-	margin: auto;
+	margin: 15rem auto 0;
+	height: auto;
+}
+
+.sub-heading {
+	font-weight: 700;
+}
+
+#date-input {
+	border: 2px solid var(--primary-color);
 }
 
 #check-button {
 	display: block;
 	margin: 1rem auto;
+	background-color: var(--primary-color);
+	padding: 0.5rem 1rem;
+	border: none;
+	color: white;
+	cursor: pointer;
+}
+
+#check-button:hover {
+	background-color: var(--secondary-color);
+	color: #000;
+}
+
+#check-button:active {
+	background-color: var(--primary-color);
+	color: white;
+}
+
+#output-container {
+	max-width: 35rem;
+}
+
+#loading-image {
+	width: 100%;
+	display: none;
+}
+
+footer {
+	background-color: var(--primary-color);
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	padding: 1rem;
+}
+
+.footer-social {
+	list-style: none;
+	padding: 0;
+}
+
+.footer-social__links {
+	display: inline-block;
+	padding: 0 1.5rem;
+}
+
+.footer-social__links a {
+	text-decoration: none;
+	color: #fff;
+}
+
+.footer-social__links a:hover {
+	color: #cae0eb;
 }
