@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+body {
+	text-align: center;
+	font-family: 'Montserrat', sans-serif;
+	padding: 2rem;
+	max-width: 37rem;
+	margin: auto;
+}
+
+#check-button {
+	display: block;
+	margin: 1rem auto;
+}
